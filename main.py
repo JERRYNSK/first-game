@@ -2,8 +2,8 @@ import pygame
 import random
 from pygame.locals import *
 pygame.init()
-largura_tela = 640
-altura_tela = 480
+largura_tela = 1200
+altura_tela = 800
 
 tela = pygame.display.set_mode((largura_tela, altura_tela))
 posx = 0
@@ -19,6 +19,9 @@ def move_bola():
 
         
 while True:
+    for ev in pygame.event.get():
+        if ev.type == pygame.QUIT:
+            pygame.quit() 
     tela.fill((0,0,0))
     posx = pygame.mouse.get_pos()[0] - 150/2
     player = pygame.draw.rect(tela, (0,0, 255), (posx, tela.get_height() - 100, 150, 50)) 
